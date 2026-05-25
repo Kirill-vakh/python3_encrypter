@@ -1,5 +1,7 @@
 import os
 from cryptography.fernet import Fernet
+
+
 def write_key():
     key = Fernet.generate_key()
     with open("key.key","wb") as file:
@@ -10,7 +12,6 @@ def load_key():
     with open("key.key","rb") as file:
         key = file.read()
     return key
-
 
 
 def add(fernet):
@@ -28,6 +29,7 @@ def view(fernet):
             decrypted_password = fernet.decrypt(password.encode()).decode()
             print(f'Логин: {login}|Пароль: {decrypted_password}')
 
+
 def main():
     if not os.path.exists("key.key"):
         write_key()  
@@ -43,5 +45,7 @@ def main():
             break
         else:
             print('Я вас не понял') 
+
+
 if __name__ == '__main__':
     main()
