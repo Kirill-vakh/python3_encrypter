@@ -1,5 +1,7 @@
 from cryptography.fernet import Fernet
 from main import load_key
+
+
 def authorization(login,password,fernet):
     with open('passwords.txt','r') as file:
         for line in file.readlines():
